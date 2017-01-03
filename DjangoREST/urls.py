@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from todo.views import TodoView as todo_views
 from accounts.views import RegistrationView as registration_view
@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^todo/(?P<pk>[0-9]+)/$', todo_views.as_view()),
     url(r'accounts/register/$', registration_view.as_view()),
     url(r'accounts/api-token-auth/$', obtain_jwt_token),
+    url(r'docs/$', include('rest_framework_docs.urls')),
 ]
